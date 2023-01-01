@@ -1,0 +1,2 @@
+![](https://assets.leetcode.com/users/images/ffa72888-fe8d-4b38-9b59-14a5b15ba476_1672551076.1935604.jpeg)
+1. https://leetcode.com/problems/word-pattern/discuss/2977910/C%2B%2B-oror-HashMap-oror-Easy-to-understand
