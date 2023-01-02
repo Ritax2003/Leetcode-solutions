@@ -1,1 +1,1 @@
-![](blob:https://web.whatsapp.com/ed5073c9-e356-40fe-b673-05f93af12987)
+![]()
