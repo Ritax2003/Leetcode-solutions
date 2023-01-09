@@ -1,0 +1,8 @@
+##Iterative approach
+
+1.Create an empty stack and push the root node to it.
+Do the following while the stack is not empty--
+
+2.Pop the top item from the stack and display it.
+3.Push the right child of the popped item to the stack.
+4.Push the left child of the popped item to the stack.
