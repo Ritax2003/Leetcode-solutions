@@ -10,6 +10,8 @@
 <p><span style="font-size:18px">He defines a new series called&nbsp;Geeky numbers. Here the next number&nbsp;is the sum of the <strong>K</strong> preceding numbers.<br>
 You are given an array of size K,&nbsp;<strong>GeekNum[ ],&nbsp;</strong>where the i<sup>th</sup>&nbsp;element of the array represents the i<sup>th</sup>&nbsp;Geeky&nbsp;number. Return its N<sup>th</sup>&nbsp;term.</span></p>
 
+<p><strong><span style="font-size:18px">Note:&nbsp;</span></strong><span style="font-size:18px">This problem can be solved in O(N<sup>2</sup>) time complexity but the user has to solve this in O(N). The Constraints are less because there can be integer overflow in the terms.</span></p>
+
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
 <pre><span style="font-size:18px"><strong>Input</strong>:
