@@ -31,7 +31,7 @@ denoted by parantheses().For example at index(1,2), the height of that island is
 <p><strong><span style="font-size:18px">Example 2:</span></strong></p>
 
 <pre><strong><span style="font-size:18px">Input:</span></strong>
-<span style="font-size:18px">N = 3, M = 2</span>
+<span style="font-size:18px">N = 2, M = 3</span>
 <span style="font-size:18px">mat[][] =    {{1, 1, 1},</span>
                <span style="font-size:18px">{1, 1, 1}}</span>
 <strong><span style="font-size:18px">Output:</span></strong>
