@@ -15,8 +15,8 @@ long long int no_of_subarrays(int n, vector<int> &arr) {
            cnt++;
        }
        else {
-           ans += (long)(cnt*(cnt+1))/2;
-           cnt = 0;
+           ans += (long)(cnt*(cnt+1))/2; // add number of subarrays of length "count" to the answer.
+           cnt = 0;//reset the counter when element other than zero is found.
        }
    }
    if(cnt!=0){
