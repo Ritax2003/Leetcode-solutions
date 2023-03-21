@@ -11,7 +11,7 @@ public:
                 counter = 0;
             }
         }
-        if(counter){
+        if(counter!=0){
             res+=(counter*(counter+1))/2;
             counter = 0;
         }
