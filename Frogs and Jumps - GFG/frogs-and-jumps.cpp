@@ -26,7 +26,7 @@ class Solution {
         for(int i=1;i<=leaves;i++){
             if(vis[i]==0) count++;
         }
-        return count++;
+        return count;
     }
 };
 
