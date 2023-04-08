@@ -10,50 +10,18 @@ using namespace std;
 
 class Solution {
   public:
-      vector<int> makeBeautiful(vector<int> arr) {
-        // code here
-        int n=arr.size();
-        stack<int>s;
-        s.push(arr[0]);
-        for(int i=1;i<n;i++)
-        {
-            if(!s.empty())
-            {
-           ;
-                
-                 if(s.top()*arr[i]>0)
-                s.push(arr[i]);
-                else if((s.top()==0 && arr[i]>=0) || (arr[i]==0 && s.top()>=0))
-                s.push(arr[i]);
-                else
-                s.pop();
-                
-                
-                
+     vector<int> makeBeautiful(vector<int> arr) {
+        vector<int> res;
+        for(int i =0;i<arr.size();i++){
+            if(res.size() == 0)res.push_back(arr[i]);
+            else{
+                if((res.back()>0 && arr[i]<0) or (res.back()<0 && arr[i]>0) or 
+                (arr[i] == 0 and res.back()<0) or (res.back() == 0 and arr[i]<0))res.pop_back();
+                else res.push_back(arr[i]);
             }
-            
-            else
-            s.push(arr[i]);
-            
-            
-            
-    
         }
-        int m=s.size();
-        int aq[m];
-        for(int i=m-1;i>=0;i--)
-        {
-            aq[i]=s.top();
-              s.pop();
-              
-        }
-        vector<int>arrow;
-        for(int i=0;i<m;i++)
-        {
-            arrow.push_back(aq[i]);
-        }
-        return arrow;
-         }
+        return res;
+    }
 };
 
 //{ Driver Code Starts.
