@@ -31,7 +31,22 @@ public:
             ans.push_back(v[idx]);
         }
         return ans;
+        /* 2nd soln 
+        vector<long long >ans(n);
+        map<int,vector<int>>mp;
+        for(int i=0;i<n;i++){
+           mp[arr[i]].push_back(i);
+        }
+        long long sum=0;
+        for(auto val:mp){
+            for(auto i:val.second){
+                ans[i]=sum;
+            }
+            sum+=val.first*val.second.size();
+        }
+        return ans;*/
     }
+    
 };
 
 //{ Driver Code Starts.
