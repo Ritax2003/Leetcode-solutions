@@ -10,13 +10,7 @@ using namespace std;
 
 class Solution{
 public:
-int gcd(int a,int b){
-    if(a==b) return a;
-    if(a>b) 
-        gcd(a-b,b);
-    else 
-        gcd(a,b-a);
-}
+
     int minimumNumber(int n,vector<int> &arr){
        int a = arr[0];
        for(int i =1;i<n;i++){
