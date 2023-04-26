@@ -10,6 +10,7 @@ using namespace std;
 
 class Solution{
     public:
+    /* For Each seat if its empty just check the next and previous seat whether its empty (handle the boundary conditions)*/
     bool is_possible_to_get_seats(int n, int m, vector<int>& seats){
        int c=0;
         for(int i=0;i<m;i++){
