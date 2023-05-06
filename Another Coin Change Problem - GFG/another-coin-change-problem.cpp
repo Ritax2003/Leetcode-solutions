@@ -24,21 +24,27 @@ class Array {
 // } Driver Code Ends
 class Solution {
   public:
-    bool f(int ind,int k,int target,vector<int> &coins,vector<vector<vector<int>>> &dp){
-        if(target==0) return k==0;
-        if(k==0) return false;
-        if(ind==0) return target%coins[ind]==0&&(target/coins[ind])==k;
-        if(dp[ind][k][target]!=-1) return dp[ind][k][target];
-        bool take = false;
-        if(target>=coins[ind]) take = f(ind,k-1,target-coins[ind],coins,dp);
-        if(take) return dp[ind][k][target]=true;
-        bool nottake = f(ind-1,k,target,coins,dp);
-        return dp[ind][k][target]=nottake;
-    }
-    bool makeChanges(int n, int k, int target, vector<int> &coins) {
-        sort(coins.begin(),coins.end());
-        vector<vector<vector<int>>> dp(n,vector<vector<int>>(k+1,vector<int>(target+1,-1)));
-        return f(n-1,k,target,coins,dp);
+  vector<vector<vector<int>>> cache;
+  bool dp(vector<int>&coins,int indx,int amt, int k){
+      if(indx>=coins.size()) return false;
+      if(cache[indx][k][amt]!=-1) return cache[indx][k][amt];
+      if(k == 0) {
+          if(amt == 0) return true;
+          return false;
+      }
+      bool take = false,notTake = false;
+      if(amt>=coins[indx]){
+        take = take || dp(coins,indx,amt-coins[indx],k-1);
+      }
+      notTake = notTake || dp(coins,indx+1,amt,k);
+      return cache[indx][k][amt]=(take || notTake);
+  }
+    bool makeChanges(int N, int K, int target, vector<int> &coins) {
+        sort(coins.rbegin(),coins.rend());
+        cache.resize(N + 1,vector<vector<int>>(K + 1,vector<int>(target + 1, -1)));
+        
+        bool ans = dp(coins,0,target,K);
+        return ans;
     }
 };
 
