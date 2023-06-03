@@ -10,6 +10,28 @@ using namespace std;
 
 class Solution{
 public:
+/*
+T.C - O(N1+N2+N3), S.C - O(1)
+
+ 
+
+Intution -
+If we look at the problem, we can see that there are 2 cases -
+When the sum of all 3 arrays are already equal. This case is easy and anyone can handle that.
+When the sum of some elements of the 3 arrays are equal. Lets understand this case in detail -
+First of all, let's forget that we have to treat the given arrays as stacks, otherwise, that would complicate things a little bit.
+If we look carefully, we can see that it is not possible to insert any elements to the array as we're only allowed to remove them.
+This gives us a hint that we cannot increase the sum of arrays but we can only reduce it. For example -
+
+Array 1 - [1,2,3]  => sum = 6
+Array 2 - [4,5] => sum = 9
+Array 3 - [2,3] => sum = 5
+
+We can see that, we cannot make the sum of Array 3 or Array 1 equal to sum of Array 2 as we're not allowed to insert elements, but only remove them. To do that, we can remove 1 element from Array1 and 1 Element from Array 2 to make sum of all Arrays equal to 5.
+This brings us to the question, how can we decide which elements to remove ? That's easy, we already have sum of all 3 arrays that we used to check the first case, We can use that sum again.
+If the sum of any array is greater than the minimum sum of the arrays, then we substract the top element of that array from the sum of that array.
+At each step, we can update the minimum sum of all the 3 arrays.
+*/
     int maxEqualSum(int N1,int N2,int N3,vector<int> &S1,vector<int> &S2,vector<int> &S3){
         int sum1=0,sum2=0,sum3=0;
         for(int i : S1) sum1+= i;
