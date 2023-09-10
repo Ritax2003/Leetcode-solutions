@@ -36,7 +36,7 @@ class Solution
 {
     public:
         Node* insert(Node* root, int data) {
-        
+            /*recursive version
             if(root==NULL) return new Node(data);
             if(root->data<data){
                 root->right=insert(root->right,data);
@@ -45,6 +45,29 @@ class Solution
                 root->left=insert(root->left,data);
             }
             return root;
+            */
+            //iterative
+            if(root==NULL) return new Node(data);
+            Node *curr = root;
+            while(curr!=NULL){
+                if(curr->data == data) return root;
+                if(curr->data >data){
+                    if(curr->left == NULL) {
+                        curr->left=new Node(data);
+                        break;
+                    }
+                    curr=curr->left;
+                }
+                else if(curr->data<data){
+                    if(curr->right==NULL){
+                        curr->right=new Node(data);
+                        break;
+                    }
+                    curr=curr->right;
+                }
+            }
+            return root;
+        
     }
 
 };
