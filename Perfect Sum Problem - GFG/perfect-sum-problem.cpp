@@ -6,7 +6,7 @@ using namespace std;
 class Solution{
 
 	public:
-
+/*
     int mod = 1000000007;
      int solve(int i,int sum,int &n, int a[], vector<vector<int>>&dp){
          if(i >= n){
@@ -27,7 +27,20 @@ class Solution{
         // Your code goes here
         vector<vector<int>>dp(n+1,vector<int>(sum+1,-1));
         return solve(0,sum,n,arr,dp);
+    }*/
+    int perfectSum(int arr[], int n, int sum){
+    vector<int> dp(sum + 1, 0);
+    dp[0] = 1;
+    for (int i = 0; i < n; i++) {
+        for (int j = sum; j >= arr[i]; j--) {
+            dp[j] += dp[j - arr[i]];
+            dp[j] %= 1000000007;  // Modulo to avoid integer overflow
+        }
     }
+    return dp[sum];
+}
+ 
+    
 };
 
 //{ Driver Code Starts.
