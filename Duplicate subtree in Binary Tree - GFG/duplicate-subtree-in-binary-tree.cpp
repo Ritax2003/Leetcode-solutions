@@ -93,7 +93,8 @@ class Solution {
     string fn(Node* root, unordered_map<string,int>&m){
         if(root==NULL) return "";
         string s = fn(root->left,m) + to_string(root->data) + fn(root->right,m);
-        return m[s]++, s;
+        m[s]++;
+        return s;
     }
     int dupSub(Node *root){
         unordered_map<string,int> m;
