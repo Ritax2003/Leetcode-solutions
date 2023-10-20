@@ -15,9 +15,7 @@ public:
     unordered_map<string,int>mp;
     string fn(TreeNode* root){
         if(root == NULL) return "";
-        string left = fn(root->left);
-        string right = fn(root->right);
-        string s = "("+left+to_string(root->val)+right+")";
+        string s = "("+fn(root->left)+to_string(root->val)+fn(root->right)+")";
         if(mp[s]==1) ans.push_back(root);
         mp[s]++;
         return s;
