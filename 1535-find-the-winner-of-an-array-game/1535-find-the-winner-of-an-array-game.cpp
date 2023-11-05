@@ -8,8 +8,8 @@ public:
         for(int i=1;i<arr.size();i++){
             if(curr_winner>arr[i]) wins++; // first element wins
             else {
-                curr_winner = arr[i]; //element other than first element wins
-                wins = 1;
+                curr_winner = arr[i]; //element other than first element wins, update position
+                wins = 1; // reset wincount
             }
             if(wins == k) return curr_winner;
         }
