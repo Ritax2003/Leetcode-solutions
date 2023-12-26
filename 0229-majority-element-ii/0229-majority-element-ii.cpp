@@ -1,5 +1,10 @@
 class Solution {
 public:
+    void IOHack(){
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+    }
     vector<int> majorityElement(vector<int>& nums) {
         int cnt1 = 0;
         int cnt2 = 0;
