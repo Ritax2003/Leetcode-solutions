@@ -1,5 +1,10 @@
 class Solution {
 public:
+    void IOHack(){
+        ios :: sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+    }
     double myPow(double x, int n) {
         long long nn = n;
         if(nn<0) nn = -1*nn;
