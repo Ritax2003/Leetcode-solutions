@@ -1,30 +1,20 @@
 class Solution {
 public:
-    // for n >= 0
-    long double positivePow(double x, int n){
-        if(n==0) return 1.0;
-        if(n==1) return x;
-        if(n%2==0){
-            x=x*x;
-            return positivePow(x, n/2);
-        }else{
-            return x * positivePow(x, n-1);
-        }}
-    // for n < 0
-    long double negativePow(double x, int n){
-        if(n==0) return 1.0;
-        if(n==-1) return double(x); 
-        if(n%2==0){
-            x=x*x;
-            return negativePow(x, n/2);
-        }else{
-            return x * negativePow(x, n+1);
-        }}
-    long double myPow(double x, int n) { 
-        if(n>=0)
-            return positivePow(x, n);
-        else{
-            x=double(1/x);
-            return negativePow(x, n);
-        }}
+    double myPow(double x, int n) {
+        long long nn = n;
+        if(nn<0) nn = -1*nn;
+     double ans = 1.0;
+        while(nn!=0){
+            if(nn%2 == 0){
+                x*=x;
+                nn/=2;
+            }
+            else{
+                ans = ans*x;
+                nn-=1;
+            }
+        }
+        if(n<0) ans = (double)1.0/(double)ans;
+        return ans;
+    }
 };
