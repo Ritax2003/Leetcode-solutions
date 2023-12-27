@@ -1,11 +1,8 @@
 class Solution {
 public:
-    void IOHack(){
-        ios::sync_with_stdio(false);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
-    }
     int minCost(string colors, vector<int>& neededTime) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         int n = colors.size();
         int res = 0;
         stack<pair<char,int>> st;
