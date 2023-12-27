@@ -1,5 +1,10 @@
 class Solution {
 public:
+    void IOHack(){
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+    }
     int minCost(string colors, vector<int>& neededTime) {
         int n = colors.size();
         int res = 0;
