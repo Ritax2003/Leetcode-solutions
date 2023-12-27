@@ -7,6 +7,8 @@ public:
         else return dp[i][j] =  countpaths(i+1,j,m,n,dp)+countpaths(i,j+1,m,n,dp);
     }
     int uniquePaths(int m, int n) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         vector<vector<int>>dp(m+1, vector<int>(n+1,-1));
        
         return countpaths(0,0,m,n,dp);
