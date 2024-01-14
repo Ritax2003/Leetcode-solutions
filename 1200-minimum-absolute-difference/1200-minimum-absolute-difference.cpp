@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> minimumAbsDifference(vector<int>& arr) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
          std::sort(arr.begin(), arr.end());
     std::vector<std::vector<int>> pairs;
     int mindiff = INT_MAX;
