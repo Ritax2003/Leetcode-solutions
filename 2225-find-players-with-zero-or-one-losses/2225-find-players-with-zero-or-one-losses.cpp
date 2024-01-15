@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
        unordered_set<int> zeroloss,oneloss, moreloss;
         for(auto match : matches){
             int winner = match[0], loser = match[1];
