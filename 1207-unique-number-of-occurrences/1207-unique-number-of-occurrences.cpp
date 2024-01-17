@@ -1,7 +1,8 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         unordered_map<int,int>mp;
         for(auto x:arr){
             mp[x]++;
