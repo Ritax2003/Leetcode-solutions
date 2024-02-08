@@ -9,7 +9,8 @@ public:
             int cnt = 1 + check(n-i*i,dp);
             res = min(res,cnt);
         }
-        return dp[n]=res;
+        dp[n]=res;
+        return dp[n];
     }
     int numSquares(int n) {
         ios_base::sync_with_stdio(false);
