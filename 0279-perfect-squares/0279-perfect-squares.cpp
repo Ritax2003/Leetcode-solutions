@@ -12,6 +12,8 @@ public:
         return dp[n]=res;
     }
     int numSquares(int n) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         vector<int>dp(n+1,-1);
         return check(n,dp);
     }
