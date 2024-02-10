@@ -1,24 +1,25 @@
 class Solution {
 public:
-    bool checkpal(string s, int l ,int r){
-        while(l<r){
-            if(s[l]!=s[r]) return false;
-            l++;
-            r--;
-        }
-        return true;
-    }
     int countSubstrings(string s) {
-        ios_base::sync_with_stdio(0);
-        cin.tie(0);
         int n = s.size();
         int ans = 0;
-        for(int i=0;i<n;i++){
-            int count = 0;
-            for(int j =i;j<n;j++){
-                if(checkpal(s,i,j)) count++;
+        for(int i=0; i<n; i++){
+            // odd length palindromes
+            int cnt = 0;
+            int l = i, r = i;
+            while(l >= 0 && r < n && s[l] == s[r]){
+                cnt++;
+                l--, r++;
             }
-            ans+=count;
+            ans += cnt;
+
+            // even length palindromes
+            l = i, r = i+1, cnt = 0;
+            while(l >= 0 && r < n && s[l] == s[r]){
+                cnt++;
+                l--, r++;
+            }
+            ans += cnt;
         }
         return ans;
     }
