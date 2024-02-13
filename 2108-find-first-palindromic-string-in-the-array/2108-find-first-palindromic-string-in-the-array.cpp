@@ -11,6 +11,8 @@ public:
         return true;
     }
     string firstPalindrome(vector<string>& words) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(0);
         string ans="";
         for(string s:words){
             if(checkpal(s)){
