@@ -12,7 +12,7 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-     if (!p && !q) return true;
+         if (!p && !q) return true;
         // if both nodes are null,then both are technically equal
 
         if ((!p || !q) || p->val != q->val) return false;
