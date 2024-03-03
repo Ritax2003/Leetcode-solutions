@@ -10,26 +10,38 @@
  */
 class Solution {
 public:
+    int length(ListNode *head){
+        int len = 0;
+        ListNode* temp = head;
+        while(temp->next!=NULL){
+            len++;
+            temp=temp->next;
+        }
+        return len;
+    }
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-      ListNode* temp=new ListNode();
-        temp->next=head;
+       ListNode *curr = head;
+       int traverseTill = length(head) - n ;
+        int i = 0;
 
-        ListNode* fast=temp;
-        ListNode* slow=temp;
-
-        for(int i=1;i<=n;i++){
-             fast=fast->next;
+        // If the head needs to be removed
+        if (traverseTill == -1) {
+            head = head->next;
+            delete curr;
+            return head;
         }
 
-        while(fast->next!=NULL){
-            fast=fast->next;
-            slow=slow->next;
+        // Traverse to the node before the one to be removed
+        while (i < traverseTill) {
+            curr = curr->next;
+            i++;
         }
 
-        ListNode* gaya=slow->next;
-        slow->next=slow->next->next;
-        delete(gaya);
-        
-        return temp->next;   
+        // Remove the nth node from the end
+        ListNode* temp = curr->next;
+        curr->next = curr->next->next;
+        delete temp;
+
+        return head;
     }
 };
