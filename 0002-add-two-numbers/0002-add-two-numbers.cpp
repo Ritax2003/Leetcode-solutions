@@ -26,12 +26,10 @@ public:
             }
             sum+=carry;
             carry = sum/10;
-            ListNode* newNode = new ListNode(sum%10);
-            temp->next = newNode;
-            temp=temp->next;
-            
+            ListNode* newnode = new ListNode(sum%10);
+            temp->next = newnode;
+            temp = temp->next;
         }
-        
         return dummy->next;
     }
 };
