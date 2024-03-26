@@ -5,7 +5,7 @@ public:
         
         int n = nums.size();
         nums.push_back(0);
-        int smallest = n;
+    
         for (int i = 0 ; i < n; i++)
         {
             while(nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i]])
