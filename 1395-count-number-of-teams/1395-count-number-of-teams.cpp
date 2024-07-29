@@ -16,8 +16,9 @@ public:
                 if(rating[i]<rating[j]) rightbig+=1;
             }
             
-            ans+=leftsmall*rightbig;
-            ans+=leftbig*rightsmall;
+            int LtoR=leftsmall*rightbig;
+            int RtoL=leftbig*rightsmall;
+            ans+=LtoR+RtoL;
         }
         return ans;
     }
