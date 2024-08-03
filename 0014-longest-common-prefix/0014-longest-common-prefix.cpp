@@ -1,36 +1,34 @@
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        int minlength = INT_MAX;
-        string shorts;
+        int minlngth = INT_MAX;
+        string small;
         for(string s : strs){
-            if(s.size()<minlength){
-                shorts =s;
-                minlength = s.size();
+            if(s.size()<minlngth){
+                minlngth = s.size();
+                small = s;
             }
         }
         
         stack<char>st;
-          // Iterate over each character position up to the length of the shortest string
-        for (int i = 0; i < minlength; i++) {
-            char currentChar = shorts[i];
-            bool allMatch = true;
-
-            // Compare the character at position i in all strings
-            for (const string& s : strs) {
-                if (s[i] != currentChar) {
-                    allMatch = false;
+        string ans="";
+        for(int i=0;i<small.size();i++){
+            char current = small[i];
+            bool allcommon = true;
+            for(int j=0;j<strs.size();j++){
+                if(strs[j][i]!= current){
+                    allcommon = false;
                     break;
                 }
             }
-
-            if (allMatch) {
-                st.push(currentChar);
-            } else {
+            
+            if(allcommon==true){
+                st.push(small[i]);
+            }
+            else{
                 break;
             }
         }
-        string ans="";
         while(st.size()!=0){
             ans+=st.top();
             st.pop();
