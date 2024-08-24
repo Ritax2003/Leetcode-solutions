@@ -2,7 +2,6 @@
 class Solution {
 public:
     string fractionAddition(string expression) {
-        // Add a '+' at the end if the expression doesn't end with a sign (for easier parsing)
         if (expression[0] != '-') expression = "+" + expression;
         int numerator = 0, denominator = 1; // Initialize result as 0/1
         int n = expression.size();
@@ -15,7 +14,7 @@ public:
             }
             // Read the numerator
             int num = 0;
-            while (i < n && isdigit(expression[i])) {
+            while (i < n && expression[i]!='/') {
                 num = num * 10 + (expression[i] - '0');
                 i++;
             }
