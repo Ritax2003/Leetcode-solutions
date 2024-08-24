@@ -4,19 +4,15 @@ public:
     string fractionAddition(string expression) {
         // Add a '+' at the end if the expression doesn't end with a sign (for easier parsing)
         if (expression[0] != '-') expression = "+" + expression;
-
         int numerator = 0, denominator = 1; // Initialize result as 0/1
         int n = expression.size();
-        
         int i = 0;
         while (i < n) {
-            // Read the sign
             int sign = 1;
             if (expression[i] == '+' || expression[i] == '-') {
                 if (expression[i] == '-') sign = -1;
                 i++;
             }
-            
             // Read the numerator
             int num = 0;
             while (i < n && isdigit(expression[i])) {
@@ -35,7 +31,7 @@ public:
                 i++;
             }
             
-            // Update the result: a/b + num/denom = (a*denom + num*b) / (b*denom)
+            // Update for each frac
             numerator = numerator * denom + num * denominator;
             denominator *= denom;
             
