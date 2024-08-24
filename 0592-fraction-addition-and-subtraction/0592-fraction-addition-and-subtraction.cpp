@@ -8,10 +8,8 @@ public:
         int i = 0;
         while (i < n) {
             int sign = 1;
-            if (expression[i] == '+' || expression[i] == '-') {
-                if (expression[i] == '-') sign = -1;
-                i++;
-            }
+            if (expression[i] == '-') sign = -1;
+            i++;
             // Read the numerator
             int num = 0;
             while (i < n && expression[i]!='/') {
