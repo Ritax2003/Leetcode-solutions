@@ -15,7 +15,8 @@ public:
 		// if not equal then
         //remaining part of `s1` and `s2` (`f(i, j-1)`).
 		//remaining part of `s1` and `s2` (`f(i-1, j)`).
-        return dp[i][j] = max(f(i, j - 1, s1, s2, dp), f(i - 1, j, s1, s2, dp));  
+       dp[i][j] = max(f(i, j - 1, s1, s2, dp), f(i - 1, j, s1, s2, dp));  
+       return dp[i][j];
     }
 
 public:
