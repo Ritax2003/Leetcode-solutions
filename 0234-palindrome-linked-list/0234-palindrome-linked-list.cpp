@@ -10,28 +10,28 @@
  */
 class Solution {
 public:
-    vector<ListNode*> lltovec(ListNode* head){
-        vector<ListNode*>vec;
-        while(head!=NULL){
-            vec.push_back(head);
-            head= head->next;
-        }
-        return vec;
-    }
-    bool isPal(vector<ListNode*>v){
-        int i =0,j = v.size()-1;
-        while(i<=j){
-            if(v[i]->val != v[j]->val) return false;
-            i++;
-            j--;
+    bool isPal(vector<int>v){
+        int start = 0;
+        int end = v.size()-1;
+        while(start<=end){
+            if(v[start]!=v[end]) return false;
+            start++;
+            end--;
         }
         return true;
     }
+    vector<int>lltovec(ListNode* head){
+        vector<int> v;
+        ListNode* dummy = head;
+        while(dummy!=NULL){
+            v.push_back(dummy->val);
+            dummy = dummy->next;
+        }
+        return v;
+    }
     bool isPalindrome(ListNode* head) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-        ListNode* temp = head;
-        vector<ListNode*>v = lltovec(temp);
-        return isPal(v);
+        vector<int> v = lltovec(head);
+        bool res = isPal(v);
+        return res;
     }
 };
