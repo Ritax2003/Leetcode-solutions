@@ -4,7 +4,10 @@ public:
         if(i== m-1 and j == n-1) return true;
         if(i >= m or j>=n) return false;
         if(dp[i][j]!=-1) return dp[i][j];
-        else return dp[i][j] =  countpaths(i+1,j,m,n,dp)+countpaths(i,j+1,m,n,dp);
+        int down = countpaths(i+1,j,m,n,dp);
+        int right = countpaths(i,j+1,m,n,dp);
+        dp[i][j]= down+right;
+        return dp[i][j];
     }
     int uniquePaths(int m, int n) {
         ios_base::sync_with_stdio(false);
