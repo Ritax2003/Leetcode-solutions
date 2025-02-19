@@ -3,9 +3,9 @@ public:
     int subarraysDivByK(vector<int>& nums, int k) {
         unordered_map<int,vector<int>>mp;
         mp[0]={-1};
+        vector<vector<int>> res;
         int sum=0;
         int cnt=0;
-        vector<vector<int>>res;
         for(int i=0;i<nums.size();i++){
             sum+=nums[i];
             int rem = (((sum%k)+k)%k);
@@ -18,7 +18,6 @@ public:
             }
             mp[rem].push_back(i);
         }
-
         return cnt;
     }
 };
