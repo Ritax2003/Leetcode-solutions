@@ -13,6 +13,6 @@ public:
 
         }
         string res;
-        for(it : v) res+=it;    
+        for(auto it : v) res+=it;    
     }
 };
