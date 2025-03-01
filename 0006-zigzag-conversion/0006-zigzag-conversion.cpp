@@ -8,7 +8,7 @@ public:
         for(int i=0;i<s.length();i++){
             if(j==0 || j==s.length()-1) direction*=-1;
             v[j]+=s[i];
-            if(dir==1) j++;
+            if(direction==1) j++;
             else j--;
 
         }
