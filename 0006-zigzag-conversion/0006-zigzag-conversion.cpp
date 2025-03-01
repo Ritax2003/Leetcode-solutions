@@ -14,5 +14,6 @@ public:
         }
         string res;
         for(auto it : v) res+=it;    
+        return res;
     }
 };
