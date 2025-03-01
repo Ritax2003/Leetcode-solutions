@@ -6,7 +6,7 @@ public:
         int direction = -1;
         vector<string>v(numRows,"");
         for(int i=0;i<s.length();i++){
-            if(j==0 or j==n-1) direction*=-1;
+            if(j==0 || j==n-1) direction*=-1;
             v[j]+=s[i];
             if(dir==1) j++;
             else j--;
