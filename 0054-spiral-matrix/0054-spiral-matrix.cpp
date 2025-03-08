@@ -1,47 +1,39 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        vector<int> res;
-        int row = matrix.size();
-        int col = matrix[0].size();
-        
-        int total = row*col;
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+        int total = rows*cols;
+        int rowstart = 0;
+        int rowend = rows-1;
+        int colstart = 0;
+        int colend=cols-1;
         int count =0;
-        int startrow =0;
-        int startcol =0;
-        int endrow = row-1;
-        int endcol = col-1;
-        
+        vector<int>res;
         while(count<total){
-            
-            for(int i=startcol;i<=endcol;i++){    //first row forward left to right
-                res.push_back(matrix[startrow][i]);
+            for(int i = colstart;i<=colend;i++){
+                    res.push_back(matrix[rowstart][i]);
+                    count++;
+            }
+            rowstart++;
+            for(int i=rowstart;i<=rowend;i++){
+                res.push_back(matrix[i][colend]);
                 count++;
             }
-            startrow++;
-            
-            for(int j= startrow;j<=endrow;j++){ // last col forward up to down
-                res.push_back(matrix[j][endcol]);
+            colend--;
+            if(rowend>=rowstart){
+            for(int i=colend;i>=colstart;i--){
+                res.push_back(matrix[rowend][i]);
                 count++;
-            }
-            endcol--;
-            
-            if(endrow>=startrow){
-            for(int i=endcol;i>=startcol;i--){ // last row reverse right to left
-                res.push_back(matrix[endrow][i]);                
+            }}
+            rowend--;
+            if(colstart<=colend){
+            for(int i=rowend;i>=rowstart;i--){
+                res.push_back(matrix[i][colstart]);
                 count++;
-            }
-        }
-            endrow--;
-            
-        if(startcol<=endcol){
-            for(int j = endrow;j>=startrow;j--){ //first col reverse down to up
-                res.push_back(matrix[j][startcol]);
-                count++;
-            }
-            startcol++;
-        }
-            
+            }}
+            colstart++;
+
         }
         return res;
     }
