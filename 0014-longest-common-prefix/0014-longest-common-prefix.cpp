@@ -1,39 +1,26 @@
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        int minlngth = INT_MAX;
-        string small;
-        for(string s : strs){
-            if(s.size()<minlngth){
-                minlngth = s.size();
-                small = s;
+        string smallest;
+        int smallest_size= INT_MAX;
+        for(auto word : strs){
+            if(word.size()<smallest_size){
+                smallest = word;
+                smallest_size= word.size();
             }
         }
-        
-        stack<char>st;
-        string ans="";
-        for(int i=0;i<small.size();i++){
-            char current = small[i];
+        string res="";
+        for(int i =0;i<smallest.size();i++){
+            char current = smallest[i];
             bool allcommon = true;
-            for(int j=0;j<strs.size();j++){
-                if(strs[j][i]!= current){
+            for(auto word : strs){
+                if(word[i]!=current){
                     allcommon = false;
                     break;
                 }
             }
-            
-            if(allcommon==true){
-                st.push(small[i]);
-            }
-            else{
-                break;
-            }
+            if(allcommon==true) res+=current;
         }
-        while(st.size()!=0){
-            ans+=st.top();
-            st.pop();
-        }
-        reverse(ans.begin(),ans.end());
-        return ans;
+        return res;
     }
 };
