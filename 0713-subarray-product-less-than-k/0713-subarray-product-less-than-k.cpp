@@ -1,10 +1,9 @@
 class Solution {
 public:
     int numSubarrayProductLessThanK(vector<int>& nums, int k) {
-        vector<vector<int>> res;
-        int cnt=0;
-        int prod=1;
-        int start=0;
+        vector<vector<int>>ans;
+        int cnt = 0;
+        int prod = 1,start=0;
         for(int end=0;end<nums.size();end++){
             prod*=nums[end];
 
@@ -12,14 +11,14 @@ public:
                 prod/=nums[start];
                 start++;
             }
-            vector<int>subarray;
+
+            //vector<int>temp;
             for(int i=end;i>=start;i--){
-                //subaray.insert(subarray.begin(),subarray[i]);
-               // res.push_back(subarray);
+                //temp.push_back(nums[i]);
                 cnt++;
             }
+           // ans.push_back(temp);
         }
-
         return cnt;
     }
 };
