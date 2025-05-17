@@ -1,18 +1,14 @@
 class Solution {
 public:
-    vector<vector<int>> merge(vector<vector<int>>& arr) {
-        int n = arr.size();
-        sort(arr.begin(),arr.end());
-        vector<vector<int>>ans;
-        for(int i=0;i<n;i++){
-            //check if ans is empty or last ans element's upper is lower than current arr's lower
-            if(ans.empty() || ans.back()[1] < arr[i][0]){
-                //disconnected(not-overlapping) interval
-                ans.push_back(arr[i]);
-            }
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        int n  = intervals.size();
+        vector<vector<int>> ans;
+        sort(intervals.begin(),intervals.end());
+
+        for(auto in : intervals){
+            if(ans.size()==0 or ans.back()[1] < in[0]) ans.push_back(in);
             else{
-                //if not , the upper will be max of these two.
-                ans.back()[1] = max(ans.back()[1],arr[i][1]);
+                ans.back()[1] = max( ans.back()[1] , in[1]);
             }
         }
         return ans;
